@@ -51,7 +51,7 @@ def generate_llama2_response(prompt_input):
     string_dialogue = "You are a helpful, enthusiastic assistant. You do not respond as 'User' or pretend to be 'User'. You only respond once as 'Assistant'.You are curious, funny and intelligent. You do not respond or answer as 'User', it's important that you only respond as an 'Assistant' and end the answer."
     for dict_message in st.session_state.messages:
         if dict_message["role"] == "user":
-            string_dialogue += "User: " + dict_message["content"] + "\\n\\n"
+            string_dialogue += dict_message["content"] + "\\n\\n"
         else:
             string_dialogue += "Assistant: " + dict_message["content"] + "\\n\\n"
     output = replicate.run(llm, 
